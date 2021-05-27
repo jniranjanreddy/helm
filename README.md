@@ -32,6 +32,7 @@ stable/mysql            1.6.9           5.7.30          DEPRECATED - Fast, relia
 stable/mysqldump        2.6.2           2.4.1           DEPRECATED! - A Helm chart to help backup MySQL...
 ```
 
+Installing MySql through helm...
 ```
 Installing MySql through helm
 [root@minikube01 ~]# helm install stable/mysql --generate-name
