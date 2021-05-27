@@ -21,4 +21,9 @@ Error: no repositories to show
 NAME    URL
 stable  https://charts.helm.sh/stable
 
+[root@minikube01 ~]# helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈Happy Helming!⎈
+
 ```
