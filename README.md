@@ -33,9 +33,9 @@ stable/mysqldump        2.6.2           2.4.1           DEPRECATED! - A Helm cha
 ```
 
 
-Installing MySql through helm...
 ```
-Installing MySql through helm
+Installing MySql through helm..
+
 [root@minikube01 ~]# helm install stable/mysql --generate-name
 WARNING: This chart is deprecated
 NAME: mysql-1622100113
@@ -72,5 +72,38 @@ To connect to your database directly from outside the K8s cluster:
     kubectl port-forward svc/mysql-1622100113 3306
 
     mysql -h ${MYSQL_HOST} -P${MYSQL_PORT} -u root -p${MYSQL_ROOT_PASSWORD}
+
+Lets us install one more from app through Helm..
+
+helm install myairflow stable/airflow
+[root@minikube01 ~]# helm install hello-airflow stable/airflow
+WARNING: This chart is deprecated
+NAME: hello-airflow
+LAST DEPLOYED: Thu May 27 03:39:16 2021
+NAMESPACE: kubernetes-dashboard
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+!WARNING! !WARNING! !WARNING! !WARNING! !WARNING!
+
+This chart has MOVED to a new repository!
+
+https://github.com/airflow-helm/charts/tree/main/charts/airflow
+
+!WARNING! !WARNING! !WARNING! !WARNING! !WARNING!
+
+--------------------
+
+Congratulations. You have just deployed Apache Airflow!
+
+1. Get the Airflow Service URL by running these commands:
+   export POD_NAME=$(kubectl get pods --namespace kubernetes-dashboard -l "component=web,app=airflow" -o jsonpath="{.items[0].metadata.name}")
+   echo http://127.0.0.1:8080
+   kubectl port-forward --namespace kubernetes-dashboard $POD_NAME 8080:8080
+
+2. Open Airflow in your web browser
+
+
 
 ```
