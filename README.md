@@ -122,7 +122,7 @@ How to uninstall Charts..
 release "hello-airflow" uninstalled
 ```
 ```
-How to create chards..
+How to create charts..
 
 [root@minikube01 ~]# helm create mychart
 Creating mychart
@@ -130,8 +130,8 @@ Creating mychart
 [root@minikube01 ~]# ls
 mychart
 
-[root@minikube01 ~]# tree mychart/
-mychart/
+[root@minikube01 ~]# tree mychart
+mychart
 ├── charts
 ├── Chart.yaml
 ├── templates
