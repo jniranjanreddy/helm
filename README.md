@@ -30,6 +30,7 @@ Update Complete. ⎈Happy Helming!⎈
 NAME                    CHART VERSION   APP VERSION     DESCRIPTION
 stable/mysql            1.6.9           5.7.30          DEPRECATED - Fast, reliable, scalable, and easy...
 stable/mysqldump        2.6.2           2.4.1           DEPRECATED! - A Helm chart to help backup MySQL...
+
 ```
 
 
@@ -103,7 +104,49 @@ Congratulations. You have just deployed Apache Airflow!
    kubectl port-forward --namespace kubernetes-dashboard $POD_NAME 8080:8080
 
 2. Open Airflow in your web browser
+```
 
+```
+How to list existing  charts..
+[root@minikube01 ~]# helm ls
+NAME                    NAMESPACE               REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+hello-airflow           kubernetes-dashboard    1               2021-05-27 03:39:16.985492418 -0400 EDT deployed        airflow-7.13.3  1.10.12
+myairflow               kubernetes-dashboard    1               2021-05-27 03:31:36.223566744 -0400 EDT deployed        airflow-7.13.3  1.10.12
+mysql-1622100113        kubernetes-dashboard    1               2021-05-27 03:22:04.693545735 -0400 EDT deployed        mysql-1.6.9     5.7.30
+```
+
+```
+How to uninstall Charts..
+
+[root@minikube01 ~]# helm uninstall hello-airflow
+release "hello-airflow" uninstalled
+```
+```
+How to create chards..
+
+[root@minikube01 ~]# helm create mychart
+Creating mychart
+
+[root@minikube01 ~]# ls
+mychart
+
+[root@minikube01 ~]# tree mychart/
+mychart/
+├── charts
+├── Chart.yaml
+├── templates
+│   ├── deployment.yaml
+│   ├── _helpers.tpl
+│   ├── hpa.yaml
+│   ├── ingress.yaml
+│   ├── NOTES.txt
+│   ├── serviceaccount.yaml
+│   ├── service.yaml
+│   └── tests
+│       └── test-connection.yaml
+└── values.yaml
+
+3 directories, 10 files
 
 
 ```
