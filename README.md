@@ -202,3 +202,37 @@ NAME    NAMESPACE       REVISION        UPDATED STATUS  CHART   APP VERSION
 [root@k8s-mas01 helm]#
 
 ```
+```
+
+Example-2
+[root@k8s-mas01 helm]# cat mychart/templates/mychart-configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Sample config map"
+  
+[root@k8s-mas01 helm]# helm install releasename-01  ./mychart
+NAME: releasename-01
+LAST DEPLOYED: Sat May 29 19:06:51 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+[root@k8s-mas01 helm]# helm ls
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+releasename-01  default         1               2021-05-29 19:06:51.515362781 -0400 EDT deployed        mychart-0.1.0   1.16.0
+[root@k8s-mas01 helm]#
+
+[root@k8s-mas01 helm]# helm get manifest releasename-01
+---
+# Source: mychart/templates/mychart-configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: releasename-01-configmap
+data:
+  myvalue: "Sample config map"
+```
