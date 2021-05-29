@@ -203,7 +203,6 @@ NAME    NAMESPACE       REVISION        UPDATED STATUS  CHART   APP VERSION
 
 ```
 ```
-
 Example-2
 [root@k8s-mas01 helm]# cat mychart/templates/mychart-configmap
 apiVersion: v1
@@ -235,4 +234,92 @@ metadata:
   name: releasename-01-configmap
 data:
   myvalue: "Sample config map"
+  
+```
+```
+[root@k8s-mas01 helm]# cat mychart/templates/mychart-configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Sample config map"
+[root@k8s-mas01 helm]# kubectl describe configmap releasename-01-configmap
+Name:         releasename-01-configmap
+Namespace:    default
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: releasename-01
+              meta.helm.sh/release-namespace: default
+
+Data
+====
+myvalue:
+----
+Sample config map
+Events:  <none>
+```
+```
+How to do Dry Run
+[root@k8s-mas01 helm]# helm install --debug --dry-run firstDryRun ./mychart/
+install.go:173: [debug] Original chart version: ""
+install.go:190: [debug] CHART PATH: /myworkspace/helm/mychart
+
+NAME: firstDryRun
+LAST DEPLOYED: Sat May 29 19:25:12 2021
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+costCode: CC98112
+
+HOOKS:
+MANIFEST:
+---
+# Source: mychart/templates/mychart-configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: firstDryRun-configmap
+data:
+  myvalue: "Sample config map"
+  costCode: CC98112
+
+[root@k8s-mas01 helm]#
+```
+```
+Dynamic values or overriding values in the config file
+[root@k8s-mas01 helm]# helm install --dry-run --debug --set costCode=CC000 valuesetexample ./mychart/
+install.go:173: [debug] Original chart version: ""
+install.go:190: [debug] CHART PATH: /myworkspace/helm/mychart
+
+NAME: valuesetexample
+LAST DEPLOYED: Sat May 29 19:50:10 2021
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+costCode: CC000
+
+COMPUTED VALUES:
+costCode: CC000
+
+HOOKS:
+MANIFEST:
+---
+# Source: mychart/templates/mychart-configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: valuesetexample-configmap
+data:
+  myvalue: "Sample config map"
+  costCode: CC000
+
+[root@k8s-mas01 helm]#
+
 ```
