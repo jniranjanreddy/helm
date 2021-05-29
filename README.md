@@ -31,6 +31,8 @@ NAME                    CHART VERSION   APP VERSION     DESCRIPTION
 stable/mysql            1.6.9           5.7.30          DEPRECATED - Fast, reliable, scalable, and easy...
 stable/mysqldump        2.6.2           2.4.1           DEPRECATED! - A Helm chart to help backup MySQL...
 
+
+
 ```
 
 
@@ -182,6 +184,21 @@ myvalue:
 ----
 Sample config map
 Events:  <none>
+[root@k8s-mas01 helm]#
+
+```
+```
+[root@k8s-mas01 helm]# helm ls
+NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+mychart-configmap       default         1               2021-05-29 18:47:21.764497653 -0400 EDT deployed        mychart-0.1.0   1.16.0
+[root@k8s-mas01 helm]#
+```
+```
+[root@k8s-mas01 helm]# helm uninstall mychart-configmap
+release "mychart-configmap" uninstalled
+
+[root@k8s-mas01 helm]# helm ls
+NAME    NAMESPACE       REVISION        UPDATED STATUS  CHART   APP VERSION
 [root@k8s-mas01 helm]#
 
 ```
