@@ -148,5 +148,40 @@ mychart
 
 3 directories, 10 files
 
+Example:1
+Deploy configmap with chart.
+Create Configmap file in templates folder, delete all other files in it.
+
+[root@k8s-mas01 helm]# cat mychart/templates/mychart-configmap
+apiVerion: v1
+kind: ConfigMap
+metadata:
+  name: mychart-configmap
+data:
+  myvalue: "Sample config map"
+
+[root@k8s-mas01 helm]# helm install mychart-configmap  ./mychart
+NAME: mychart-configmap
+LAST DEPLOYED: Sat May 29 18:47:21 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+we can test through kubectl describe command.
+[root@k8s-mas01 helm]# kubectl describe configmaps mychart-configmap
+Name:         mychart-configmap
+Namespace:    default
+Labels:       app.kubernetes.io/managed-by=Helm
+Annotations:  meta.helm.sh/release-name: mychart-configmap
+              meta.helm.sh/release-namespace: default
+
+Data
+====
+myvalue:
+----
+Sample config map
+Events:  <none>
+[root@k8s-mas01 helm]#
 
 ```
