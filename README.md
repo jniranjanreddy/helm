@@ -1,4 +1,9 @@
 # helm
+Important URLs to know for extensively using helm.
+1. https://helm.sh/docs/
+2. https://pkg.go.dev/text/template
+3. http://masterminds.github.io/sprig/strings.html
+
 ```
 How to install helm.
 Download binary, make executable and copy helm to /usr/local/bin/   # Thats all
@@ -321,5 +326,8 @@ data:
   costCode: CC000
 
 [root@k8s-mas01 helm]#
+
+```
+```
 
 ```
