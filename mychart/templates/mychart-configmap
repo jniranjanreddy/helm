@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: {{ .Release.Name }}-configmap
+data: 
+  myvalue: "Sample config map"
+  costCode: {{ .Values.costCode }}
+  zone: {{ quote .Values.infra.zone }}
+  region: {{ quote .Values.infra.region }}
+  projectCode: {{ upper .Values.projectCode }}
