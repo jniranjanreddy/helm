@@ -3,3 +3,8 @@ projectCode: alpha
 infra: 
   zone: a,b,c
   region: us-east
+tags: 
+  machine: frontdrive
+  rack: 4c
+  drive: ssd
+  vcard: 8g
