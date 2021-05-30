@@ -15,7 +15,7 @@ data:
   ha: true 
   {{- end }}
   {{- with .Values.tags }}
-  Machine Type: {{ .machine | "NA" | quote }}
+  Machine Type: {{ .machine | default "NA" | quote }}
   Rack ID: {{ .rack | quote }}
   Storage Type: {{ .drive | upper | quote }}
   Video Card: {{ .vcard | quote }}
