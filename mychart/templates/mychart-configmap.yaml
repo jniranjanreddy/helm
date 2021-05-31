@@ -26,8 +26,7 @@ data:
   Storage Type: {{ .drive | upper | quote }}
   Video Card: {{ .vcard | quote }}
   {{- end }}
-  Land Used: |-
+  Lang Used: |-
    {{- range .Values.LangUsed }}
    - {{ . | title | quote }}
-   {{- end }}  
-  
+   {{- end }}
