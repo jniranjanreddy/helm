@@ -2,6 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata: 
   name: {{ .Release.Name }}-configmap
+  labels: 
+  {{- with .Values.tags }}
+    first: {{ .machine }}
+    second: {{ .rack }}
+    third: {{ .drive }}
+  {{- end }}
 data: 
   myvalue: "Sample config map"
   costCode: {{ .Values.costCode }}
@@ -20,3 +26,7 @@ data:
   Storage Type: {{ .drive | upper | quote }}
   Video Card: {{ .vcard | quote }}
   {{- end }}
+  Land Used: |-
+   {{- range .Values.LangUsed }}
+   - {{ . | title | quote }}
+   {{- end }}  

@@ -8,3 +8,8 @@ tags:
   rack: 4c
   drive: ssd
   vcard: 8g
+LandUsed: 
+  - Python
+  - Ruby
+  - Java
+  - Scala
