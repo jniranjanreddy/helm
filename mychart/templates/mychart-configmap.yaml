@@ -5,8 +5,8 @@ metadata:
   labels: 
   {{- with .Values.tags }}
     first: {{ .machine }}
-    second: {{ .rack }}
-    third: {{ .drive }}
+   second: {{ .rack }}
+  third: {{ .drive }}
   {{- end }}
 data: 
   myvalue: "Sample config map"
@@ -30,3 +30,4 @@ data:
    {{- range .Values.LangUsed }}
    - {{ . | title | quote }}
    {{- end }}  
+  
