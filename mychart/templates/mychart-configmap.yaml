@@ -30,3 +30,12 @@ data:
    {{- range .Values.LangUsed }}
    - {{ . | title | quote }}
    {{- end }}
+  
+  {{- $relname := .Release.Name -}}
+  {{- with .Values.tags }}
+  Machine Type: {{ .machine | default "NA" | quote }}
+  Rack ID: {{ .rack | quote }}
+  Storage Type: {{ .drive | upper | quote }}
+  Video Card: {{ .vcard | quote }}
+  Release: {{ $relname }}
+  {{- end }}
