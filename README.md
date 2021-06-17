@@ -10,6 +10,10 @@ wget https://get.helm.sh/helm-v2.16.11-linux-amd64.tar.gz
 tar -zxvf helm-v2.16.11-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 
+[root@k8s-helm ~]# helm init --stable-repo-url=https://charts.helm.sh/stable
+$HELM_HOME has been configured at /root/.helm.
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
 [root@minikube01 tmp]# helm version
 Client: &version.Version{SemVer:"v2.16.11", GitCommit:"73b28bab84490d18ab1b71489a574ee18e229eea", GitTreeState:"clean"}
 ```
