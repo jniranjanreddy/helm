@@ -1,8 +1,22 @@
 # helm
-Important URLs to know for extensively using helm.
+Important URLs to know for extensive use of helm.
 1. https://helm.sh/docs/
 2. https://pkg.go.dev/text/template
 3. http://masterminds.github.io/sprig/strings.html
+
+```
+Helm 2.x 
+wget https://get.helm.sh/helm-v2.16.11-linux-amd64.tar.gz
+tar -zxvf helm-v2.16.11-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin/helm
+
+[root@minikube01 tmp]# helm version
+Client: &version.Version{SemVer:"v2.16.11", GitCommit:"73b28bab84490d18ab1b71489a574ee18e229eea", GitTreeState:"clean"}
+```
+
+
+
+
 
 ```
 How to install helm.
