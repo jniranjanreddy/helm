@@ -22,6 +22,13 @@ Client: &version.Version{SemVer:"v2.16.11", GitCommit:"73b28bab84490d18ab1b71489
 Forwarding from 127.0.0.1:44134 -> 44134
 Forwarding from [::1]:44134 -> 44134
 Handling connection for 44134
+
+# if you see below error then install socat package.
+[root@k8s-helm ~]# helm ls
+E0618 01:33:44.063211    5152 portforward.go:400] an error occurred forwarding 44209 -> 44134: error forwarding port 44134 to pod 49855573bfba481f4acd468d95a741190127432f0f8f06aab0d0560471178c57, uid : unable to do port forwarding: socat not found
+
+yum install -y socat  # It should work now.
+
 ```
 
 ```
