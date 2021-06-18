@@ -16,11 +16,13 @@ Tiller (the Helm server-side component) has been installed into your Kubernetes 
 
 [root@minikube01 tmp]# helm version
 Client: &version.Version{SemVer:"v2.16.11", GitCommit:"73b28bab84490d18ab1b71489a574ee18e229eea", GitTreeState:"clean"}
+
+#If you see any issues with tiller, then in one terminal execute the command and use helm on other terminal
+[root@minikube01 myworkspace]#  kubectl -n kube-system port-forward svc/tiller-deploy 44134:44134
+Forwarding from 127.0.0.1:44134 -> 44134
+Forwarding from [::1]:44134 -> 44134
+Handling connection for 44134
 ```
-
-
-
-
 
 ```
 How to install helm.
