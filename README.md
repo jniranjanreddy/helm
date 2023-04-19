@@ -359,4 +359,14 @@ data:
 helm repo add my-repo https://charts.bitnami.com/bitnami
 helm install my-release my-repo/postgresql-ha
 
+root@minikube01# helm search repo bitnami/postgresql
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION
+bitnami/postgresql      12.2.8          15.2.0          PostgreSQL (Postgres) is an open source object-...
+bitnami/postgresql-ha   11.3.0          15.2.0          This PostgreSQL cluster solution includes the P...
+root@minikube01#
+
+root@minikube01# helm pull bitnami/postgresql-ha
+
+
+
 ```
