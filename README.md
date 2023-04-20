@@ -366,7 +366,16 @@ bitnami/postgresql-ha   11.3.0          15.2.0          This PostgreSQL cluster 
 root@minikube01#
 
 root@minikube01# helm pull bitnami/postgresql-ha
+```
+```
+helm install --set service.type=ClusterIP --set  postgresql.password=postgres --set pgpool.replicaCount=1 --set postgresql.repmgrReconnectAttempts=1 --set postgresql.repmgrConnectTimeout=1 --set postgresql.repmgrReconnectInterval=2 --set pgpoolImage.debug=true pqs-tester bitnami/postgresql-ha
 
+root@minikube01 ~ # k get pods
+NAME                                               READY   STATUS    RESTARTS      AGE
+pqs-tester-postgresql-ha-pgpool-7fb9bfdcf8-g7zjh   1/1     Running   0             3m32s
+pqs-tester-postgresql-ha-postgresql-0              1/1     Running   0             3m32s
+pqs-tester-postgresql-ha-postgresql-1              1/1     Running   0             3m31s
+pqs-tester-postgresql-ha-postgresql-2              1/1     Running   0             3m31s
 
 
 ```
