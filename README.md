@@ -367,7 +367,15 @@ root@minikube01#
 
 root@minikube01# helm pull bitnami/postgresql-ha
 ```
+
 ```
+Type-1
+export POSTGRES_PASSWORD=postgrespass
+export REPMGR_PASSWORD=repmgrpass
+helm install postgres-test bitnami/postgresql-ha --set postgresql.password=$POSTGRES_PASSWORD --set postgresql.repmgrPassword=$REPMGR_PASSWORD
+
+
+Tyte-2
 helm install --set service.type=ClusterIP --set  postgresql.password=postgres --set pgpool.replicaCount=1 --set postgresql.repmgrReconnectAttempts=1 --set postgresql.repmgrConnectTimeout=1 --set postgresql.repmgrReconnectInterval=2 --set pgpoolImage.debug=true pqs-tester bitnami/postgresql-ha
 
 root@minikube01 ~ # k get pods
