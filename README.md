@@ -374,6 +374,43 @@ export POSTGRES_PASSWORD=postgrespass
 export REPMGR_PASSWORD=repmgrpass
 helm install postgres-test bitnami/postgresql-ha --set postgresql.password=$POSTGRES_PASSWORD --set postgresql.repmgrPassword=$REPMGR_PASSWORD
 
+Type-one output
+NAME: my-release
+LAST DEPLOYED: Mon Apr 24 21:06:31 2023
+NAMESPACE: development
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: postgresql-ha
+CHART VERSION: 11.4.1
+APP VERSION: 15.2.0
+** Please be patient while the chart is being deployed **
+PostgreSQL can be accessed through Pgpool via port 5432 on the following DNS name from within your cluster:
+
+    my-release-postgresql-ha-pgpool.development.svc.cluster.local
+
+Pgpool acts as a load balancer for PostgreSQL and forward read/write connections to the primary node while read-only connections are forwarded to standby nodes.
+
+To get the password for "postgres" run:
+
+    export POSTGRES_PASSWORD=$(kubectl get secret --namespace development my-release-postgresql-ha-postgresql -o jsonpath="{.data.password}" | base64 -d)
+
+To get the password for "repmgr" run:
+
+    export REPMGR_PASSWORD=$(kubectl get secret --namespace development my-release-postgresql-ha-postgresql -o jsonpath="{.data.repmgr-password}" | base64 -d)
+
+To connect to your database run the following command:
+
+    kubectl run my-release-postgresql-ha-client --rm --tty -i --restart='Never' --namespace development --image docker.io/bitnami/postgresql-repmgr:15.2.0-debian-11-r23 --env="PGPASSWORD=$POSTGRES_PASSWORD"  \
+        --command -- psql -h my-release-postgresql-ha-pgpool -p 5432 -U postgres -d postgres
+
+To connect to your database from outside the cluster execute the following commands:
+
+    kubectl port-forward --namespace development svc/my-release-postgresql-ha-pgpool 5432:5432 &
+    psql -h 127.0.0.1 -p 5432 -U postgres -d postgres
+
+
 
 Tyte-2
 helm install --set service.type=ClusterIP --set  postgresql.password=postgres --set pgpool.replicaCount=1 --set postgresql.repmgrReconnectAttempts=1 --set postgresql.repmgrConnectTimeout=1 --set postgresql.repmgrReconnectInterval=2 --set pgpoolImage.debug=true pqs-tester bitnami/postgresql-ha
