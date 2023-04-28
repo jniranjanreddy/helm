@@ -373,7 +373,12 @@ Type-1
 export POSTGRES_PASSWORD=postgrespass
 export REPMGR_PASSWORD=repmgrpass
 helm install postgres-test bitnami/postgresql-ha --set postgresql.password=$POSTGRES_PASSWORD --set postgresql.repmgrPassword=$REPMGR_PASSWORD
-
+```
+# bitnami/postgresql-ha  Nodeport
+```
+helm install postgres-ha my-repo/postgresql-ha --set postgresql.password=$POSTGRES_PASSWORD --set postgresql.repmgrPassword=$REPMGR_PASSWORD --set service.type=NodePort
+```
+```
 Type-one output
 NAME: my-release
 LAST DEPLOYED: Mon Apr 24 21:06:31 2023
