@@ -3,8 +3,18 @@ Important URLs to know for extensive use of helm.
 1. https://helm.sh/docs/
 2. https://pkg.go.dev/text/template
 3. http://masterminds.github.io/sprig/strings.html
+4. plugins - https://github.com/chartmuseum/helm-push.git
 
 ```
+root@minikube01 /myworkspace/helm (main) # helm plugin install https://github.com/chartmuseum/helm-push.git
+Downloading and installing helm-push v0.10.4 ...
+https://github.com/chartmuseum/helm-push/releases/download/v0.10.4/helm-push_0.10.4_linux_amd64.tar.gz
+Installed plugin: cm-push
+root@minikube01 /myworkspace/helm (main)
+
+
+
+
 Helm 2.x 
 wget https://get.helm.sh/helm-v2.16.11-linux-amd64.tar.gz
 tar -zxvf helm-v2.16.11-linux-amd64.tar.gz
