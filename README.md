@@ -5,12 +5,25 @@ Important URLs to know for extensive use of helm.
 3. http://masterminds.github.io/sprig/strings.html
 4. plugins - https://github.com/chartmuseum/helm-push.git
 
+
+## Install plugins
 ```
 root@minikube01 /myworkspace/helm (main) # helm plugin install https://github.com/chartmuseum/helm-push.git
 Downloading and installing helm-push v0.10.4 ...
 https://github.com/chartmuseum/helm-push/releases/download/v0.10.4/helm-push_0.10.4_linux_amd64.tar.gz
 Installed plugin: cm-push
 root@minikube01 /myworkspace/helm (main)
+```
+
+## History of revisions
+```
+root@minikube01 /myworkspace/helm (main) # helm history webpage
+REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
+1               Fri Aug 18 14:01:19 2023        superseded      web-pod-0.1.0   1.16.0          Install complete
+2               Fri Aug 18 14:02:30 2023        deployed        web-pod-0.1.0   1.16.0          Upgrade complete
+
+
+```
 
 
 
