@@ -21,11 +21,42 @@ root@minikube01 /myworkspace/helm (main) # helm history webpage
 REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
 1               Fri Aug 18 14:01:19 2023        superseded      web-pod-0.1.0   1.16.0          Install complete
 2               Fri Aug 18 14:02:30 2023        deployed        web-pod-0.1.0   1.16.0          Upgrade complete
-
-
 ```
 
+## Rograde and Roll back.
+```
+root@minikube01 /myworkspace/helm (main) # helm history webpage
+REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
+1               Fri Aug 18 14:01:19 2023        superseded      web-pod-0.1.0   1.16.0          Install complete
+2               Fri Aug 18 14:02:30 2023        deployed        web-pod-0.1.0   1.16.0          Upgrade complete
 
+root@minikube01 /myworkspace/helm (main) # helm upgrade webpage web-pod
+Release "webpage" has been upgraded. Happy Helming!
+NAME: webpage
+LAST DEPLOYED: Fri Aug 18 14:31:24 2023
+NAMESPACE: cafe
+STATUS: deployed
+REVISION: 3
+TEST SUITE: None
+
+root@minikube01 /myworkspace/helm (main) # helm history webpage
+REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
+1               Fri Aug 18 14:01:19 2023        superseded      web-pod-0.1.0   1.16.0          Install complete
+2               Fri Aug 18 14:02:30 2023        superseded      web-pod-0.1.0   1.16.0          Upgrade complete
+3               Fri Aug 18 14:31:24 2023        deployed        web-pod-0.1.0   1.16.0          Upgrade complete
+
+
+root@minikube01 /myworkspace/helm (main) #  helm rollback webpage 1
+Rollback was a success! Happy Helming!
+
+root@minikube01 /myworkspace/helm (main) # helm history webpage
+REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
+1               Fri Aug 18 14:01:19 2023        superseded      web-pod-0.1.0   1.16.0          Install complete
+2               Fri Aug 18 14:02:30 2023        superseded      web-pod-0.1.0   1.16.0          Upgrade complete
+3               Fri Aug 18 14:31:24 2023        superseded      web-pod-0.1.0   1.16.0          Upgrade complete
+4               Fri Aug 18 14:33:30 2023        deployed        web-pod-0.1.0   1.16.0          Rollback to 1
+
+```
 
 
 Helm 2.x 
