@@ -98,7 +98,7 @@ cp linux-amd64/helm  /usr/local/bin/
 
 [root@minikube01 tmp]# helm version
 version.BuildInfo{Version:"v3.5.0", GitCommit:"32c22239423b3b4ba6706d450bd044baffdcf9e6", GitTreeState:"clean", GoVersion:"go1.15.6"}
-
+```
 [root@minikube01 ~]# helm repo list
 Error: no repositories to show
 
