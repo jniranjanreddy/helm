@@ -91,6 +91,7 @@ yum install -y socat  # It should work now.
 How to install helm.
 Download binary, make executable and copy helm to /usr/local/bin/   # Thats all
 ```
+```
 wget https://get.helm.sh/helm-v3.5.0-linux-amd64.tar.gz  OR wget https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz
 tar -zxvf helm-v3.5.0-linux-amd64.tar.gz
 chmod +x linux-amd64/helm 
