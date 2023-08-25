@@ -118,7 +118,7 @@ Update Complete. ⎈Happy Helming!⎈
 NAME                    CHART VERSION   APP VERSION     DESCRIPTION
 stable/mysql            1.6.9           5.7.30          DEPRECATED - Fast, reliable, scalable, and easy...
 stable/mysqldump        2.6.2           2.4.1           DEPRECATED! - A Helm chart to help backup MySQL...
-
+```
 
 
 ```
