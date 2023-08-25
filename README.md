@@ -45,8 +45,8 @@ REVISION        UPDATED                         STATUS          CHART           
 1               Fri Aug 18 14:01:19 2023        superseded      web-pod-0.1.0   1.16.0          Install complete
 2               Fri Aug 18 14:02:30 2023        superseded      web-pod-0.1.0   1.16.0          Upgrade complete
 3               Fri Aug 18 14:31:24 2023        deployed        web-pod-0.1.0   1.16.0          Upgrade complete
-
-
+```
+```
 root@minikube01 /myworkspace/helm (main) #  helm rollback webpage 1
 Rollback was a success! Happy Helming!
 
@@ -59,7 +59,7 @@ REVISION        UPDATED                         STATUS          CHART           
 
 ```
 
-
+```
 Helm 2.x 
 wget https://get.helm.sh/helm-v2.16.11-linux-amd64.tar.gz
 tar -zxvf helm-v2.16.11-linux-amd64.tar.gz
@@ -81,9 +81,10 @@ Handling connection for 44134
 # if you see below error then install socat package.
 [root@k8s-helm ~]# helm ls
 E0618 01:33:44.063211    5152 portforward.go:400] an error occurred forwarding 44209 -> 44134: error forwarding port 44134 to pod 49855573bfba481f4acd468d95a741190127432f0f8f06aab0d0560471178c57, uid : unable to do port forwarding: socat not found
-
+```
+```
 yum install -y socat  # It should work now.
-
+```
 ```
 
 ```
