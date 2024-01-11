@@ -7,7 +7,7 @@ Important URLs to know for extensive use of helm.
 4. plugins - https://github.com/chartmuseum/helm-push.git
 5. plugins - https://github.com/topics/helm-plugin
 6. Playground: https://paulvollmer.net/helm-playground
-7. 
+7. https://artifacthub.io/
 ```
 
 ## Install plugins
@@ -497,4 +497,5 @@ helm install gloo-mgmt gloo-mesh-enterprise/gloo-mesh-enterprise \
 --set glooMeshRedis.floatingUserId=true
 
 ```
+kkkkkkkkk
 ```
