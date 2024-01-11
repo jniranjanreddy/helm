@@ -5,6 +5,9 @@ Important URLs to know for extensive use of helm.
 2. https://pkg.go.dev/text/template
 3. http://masterminds.github.io/sprig/strings.html
 4. plugins - https://github.com/chartmuseum/helm-push.git
+5. plugins - https://github.com/topics/helm-plugin
+6. Playground: https://paulvollmer.net/helm-playground
+7. 
 ```
 
 ## Install plugins
