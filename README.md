@@ -480,7 +480,7 @@ pqs-tester-postgresql-ha-postgresql-2              1/1     Running   0          
 
 
 ```
-Update values
+Update values.
 ```
 helm install gloo-mgmt gloo-mesh-enterprise/gloo-mesh-enterprise \
 --namespace gloo-mesh \
