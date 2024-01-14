@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "test-01.name" -}}
+{{- define "builtinobjects.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "test-01.fullname" -}}
+{{- define "builtinobjects.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "test-01.chart" -}}
+{{- define "builtinobjects.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "test-01.labels" -}}
-helm.sh/chart: {{ include "test-01.chart" . }}
-{{ include "test-01.selectorLabels" . }}
+{{- define "builtinobjects.labels" -}}
+helm.sh/chart: {{ include "builtinobjects.chart" . }}
+{{ include "builtinobjects.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "test-01.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "test-01.name" . }}
+{{- define "builtinobjects.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "builtinobjects.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "test-01.serviceAccountName" -}}
+{{- define "builtinobjects.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "test-01.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "builtinobjects.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

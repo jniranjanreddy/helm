@@ -173,7 +173,26 @@ REVISION        UPDATED                         STATUS          CHART           
 5               Sat Jan 13 00:38:17 2024        deployed        mychart2-0.4.0  4.0.0           Rollback to 3
 ```
 ## Dry run
+```
+helm install myapp901 stacksimplify/mychart1 --set service.nodePort=31240 --dry-run
+helm install myapp901 stacksimplify/mychart1 --set service.nodePort=31240 --dry-run --debug
+helm upgrade myapp901 stacksimplify/mychart1 -f myvalues.yaml --dry-run --debug
+helm status myapp901 --show-resources
+helm get values myapp901
+helm get values myapp901
+```
+## Heml Manifest
+```
+# helm get manifest
+helm get manifest RELEASE-NAME
+helm get manifest myapp901
 
+# helm get manifest --revision
+helm get manifest RELEASE-NAME --revision int
+helm get manifest myapp901 --revision 1
+
+
+```
 
 
 
