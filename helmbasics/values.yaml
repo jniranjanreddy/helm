@@ -1,0 +1,24 @@
+# # Flow Control: Range with List
+# namespaces:
+#   - name: myapp1
+#   - name: myapp2
+#   - name: myapp3
+
+# # Flow Control: Range with List and Helm Variables
+# environments:
+#   - name: dev
+#   - name: qa
+#   - name: uat  
+#   - name: prod    
+# Range with Dictionary
+myapps:
+  config1: 
+    appName: myapp1
+    appType: webserver
+    appTech: HTML
+    appDb: mysql
+  config2: 
+    appName: myapp2
+    appType: webserver
+    appTech: HTML
+    appDb: mysql
